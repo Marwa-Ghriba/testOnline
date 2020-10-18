@@ -26,6 +26,40 @@ function readLine() {
 
 // Complete the lilysHomework function below.
 function lilysHomework(arr) {
+  
+        let c =null;
+        let restart=true;
+        let count=0;
+        let i=0;
+        let y = array.length-1;
+        do{
+          for(i=0;i<array.length-1;i++){
+          restart=false;
+            let selectedi;
+            let selectedy;
+            y = array.length-1;
+            let min;
+            for(y=array.length-1;y>i+1;y--){         
+              if(array[y] < array[y-1] && array[i]-array[y]<array.length ){
+                selectedi=i;
+                selectedy=y;
+              }else{
+                if(array[y]>array[y-1] && array[i]-array[y-1]<array.length ){
+                  selectedi=i;
+                  selectedy=y;
+                }
+              }
+            }
+            if(!isNaN(selectedi) && !isNaN(selectedy)){
+              c = array[selectedy];
+              array[selectedy]=array[selectedi];
+              array[selectedi]=c;
+              count++;
+            }
+          }
+        }while(restart==true);
+        return count;
+     
 
 
 }
