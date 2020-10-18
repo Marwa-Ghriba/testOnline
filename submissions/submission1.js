@@ -26,7 +26,24 @@ function readLine() {
 
 // Complete the minimumLoss function below.
 function minimumLoss(price) {
-
+    
+        let min ;
+        price.forEach((element,i)=>{
+          for(var y=i+1;y<=price.length-1;y++){
+            if(!isNaN(element-price[y+1])){
+              if((element-price[y]<element-price[y+1] && element-price[y]>0)){
+              min=element-price[y];
+              }else{
+                min=element-price[y+1];
+              }
+            }else{
+              if(min && min>element-price[y]){
+                min=element-price[y];
+              }
+            }
+          }
+        });
+        return min;
 
 }
 
